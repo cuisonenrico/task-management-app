@@ -1,0 +1,60 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Lint Checks
+
+on:
+  pull_request:
+    branches: ['**']
+
+jobs:
+  tests:
+    permissions: write-all
+    name: Flutter Lint Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Get FVM Config
+        id: fvm_config
+        uses: zoexx/github-action-json-file-properties@release
+        with:
+          file_path: ".fvm/fvm_config.json"
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.fvm_config.outputs.flutterSdkVersion }}
+          channel: stable
+          cache: true
+          architecture: x64
+
+      - name: Inject Dummy Environment File
+        uses: "DamianReeves/write-file-action@master"
+        with:
+          path: lib/environment.dart
+          write-mode: overwrite
+          contents: |
+            // ignore_for_file: constant_identifier_names
+            class Environment {
+              static const String key = '';
+            }
+
+      - name: Install packages and analyze
+        run: |
+          flutter pub get
+          flutter packages pub run build_runner build --delete-conflicting-outputs --verbose
+          flutter analyze > flutter_analyze_report.txt
+
+      - name: Comment PR
+        if: ${{ failure() }} || ${{ success() }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: "lints"
+          hide_and_recreate: true
+          hide_classify: "OUTDATED"
+          path: flutter_analyze_report.txt
