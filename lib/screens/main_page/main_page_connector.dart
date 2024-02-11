@@ -1,8 +1,8 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:setup/screens/main_page/main_page.dart';
-import 'package:setup/screens/main_page/main_page_vm.dart';
-import 'package:setup/state/app_state.dart';
+import 'package:task_management_app/screens/main_page/main_page.dart';
+import 'package:task_management_app/screens/main_page/main_page_vm.dart';
+import 'package:task_management_app/state/app_state.dart';
 
 class MainPageConnector extends StatelessWidget {
   const MainPageConnector({super.key});

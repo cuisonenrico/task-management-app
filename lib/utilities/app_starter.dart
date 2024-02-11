@@ -3,8 +3,8 @@ import 'dart:async';
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:setup/setup_app.dart';
-import 'package:setup/state/app_state.dart';
+import 'package:task_management_app/setup_app.dart';
+import 'package:task_management_app/state/app_state.dart';
 
 Future<void> startApp() async {
   await runZonedGuarded(

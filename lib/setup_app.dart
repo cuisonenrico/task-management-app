@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:setup/utilities/app_router.dart';
+import 'package:task_management_app/utilities/app_router.dart';
 
 class SetupApp extends StatelessWidget {
   const SetupApp({super.key});

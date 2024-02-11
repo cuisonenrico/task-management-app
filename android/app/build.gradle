@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.setup"
+        applicationId "com.task_management_app"
         minSdkVersion 29
         targetSdkVersion 33
         versionCode flutterVersionCode.toInteger()
@@ -58,17 +58,17 @@ android {
             dimension "flavor-type"
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
-            resValue "string", "app_name", "[DEV] Flutter Setup"
+            resValue "string", "app_name", "[DEV] Task Management App"
         }
         stage {
             dimension "flavor-type"
             applicationIdSuffix ".test"
             versionNameSuffix "-test"
-            resValue "string", "app_name", "[TEST] Flutter Setup"
+            resValue "string", "app_name", "[TEST] Task Management App"
         }
         live {
             dimension "flavor-type"
-            resValue "string", "app_name", "Flutter Setup"
+            resValue "string", "app_name", "Task Management App"
         }
     }
 

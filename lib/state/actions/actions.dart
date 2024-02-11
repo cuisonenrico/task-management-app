@@ -1,5 +1,5 @@
 import 'package:async_redux/async_redux.dart';
-import 'package:setup/state/app_state.dart';
+import 'package:task_management_app/state/app_state.dart';
 
 /// Update [counter] in state based on Offset
 class CounterAction extends ReduxAction<AppState> {

@@ -9,7 +9,7 @@ Follow these steps to use the template repository featuring properly setup Gradl
     > 
     > fvm use <VERSION_NUMBER>
 3. To rename all package names associated with android files run this:
-    > futter pub run change_app_package_name:main com.package.test_fork
+    > flutter pub run change_app_package_name:main com.package.test_fork
 
     Note: Replace `com.package.test_fork` with your desired package name. Take note that this will only replace package names for android files. Any values such as the `app_name` declared for each application flavor in `build.gradle` should be changed manually (see image below).
 
