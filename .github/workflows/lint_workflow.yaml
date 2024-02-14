@@ -39,10 +39,54 @@ jobs:
           path: lib/environment.dart
           write-mode: overwrite
           contents: |
-            // ignore_for_file: constant_identifier_names
+            import 'package:firebase_core/firebase_core.dart';
+  
             class Environment {
-              static const String key = '';
+              FirebaseOptions WEB_ENV = const FirebaseOptions(
+                apiKey: '',
+                appId: '',
+                messagingSenderId: '',
+                projectId: '',
+                authDomain: '',
+                databaseURL: '',
+                storageBucket: '',
+                measurementId: '',
+              );
+            
+              FirebaseOptions ADR_ENV = const FirebaseOptions(
+                apiKey: '',
+                appId: '',
+                messagingSenderId: '',
+                projectId: '',
+                databaseURL: '',
+                storageBucket: '',
+              );
+            
+              FirebaseOptions IOS_ENV = const FirebaseOptions(
+                apiKey: '',
+                appId: '',
+                messagingSenderId: '',
+                projectId: '',
+                databaseURL: '',
+                storageBucket: '',
+                androidClientId: '',
+                iosClientId: '',
+                iosBundleId: '',
+              );
+            
+              FirebaseOptions MACOS_ENV = const FirebaseOptions(
+                apiKey: '',
+                appId: '',
+                messagingSenderId: '',
+                projectId: '',
+                databaseURL: '',
+                storageBucket: '',
+                androidClientId: '',
+                iosClientId: '',
+                iosBundleId: '',
+              );
             }
+
 
       - name: Install packages and analyze
         run: |

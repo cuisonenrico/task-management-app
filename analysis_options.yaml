@@ -15,3 +15,4 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - "lib/apis/offline_api/lib/handler/*_handler.dart"
+    - "lib/environment.dart"
