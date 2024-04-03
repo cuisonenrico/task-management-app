@@ -17,6 +17,7 @@ class MainPageConnector extends StatelessWidget {
       builder: (_, vm) => MainPage(
         onTap: vm.onTap,
         counter: vm.counter,
+        user: vm.user,
       ),
     );
   }
