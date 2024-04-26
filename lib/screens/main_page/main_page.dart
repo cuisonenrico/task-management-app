@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:task_management_app/screens/widgets/app_bar.dart';
 import 'package:task_management_app/screens/widgets/app_scaffold.dart';
+import 'package:task_management_app/state/user_state/user_model/user_model.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({
     required this.onTap,
     required this.counter,
+    required this.user,
     super.key,
   });
 
   final int counter;
   final ValueChanged<int> onTap;
+
+  final UserModel user;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +35,12 @@ class MainPage extends StatelessWidget {
             Text(
               '$counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            Text(
+              user.firstName ?? '',
+            ),
+            Text(
+              user.email ?? '',
             ),
           ],
         ),

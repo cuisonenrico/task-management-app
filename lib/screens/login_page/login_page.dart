@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:task_management_app/utilities/handlers/user_handler.dart';
+import 'package:task_management_app/screens/widgets/input_field.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  const LoginPage({
+    required this.onLogin,
+    required this.onLoginGoogle,
+    required this.onChangeUsername,
+    required this.onChangePassword,
+    super.key,
+  });
 
-  static const routeName = 'login-page';
-  static const route = '/login-page';
+  final VoidCallback onLoginGoogle;
+  final VoidCallback onLogin;
+  final ValueChanged<String> onChangeUsername;
+  final ValueChanged<String> onChangePassword;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +26,22 @@ class LoginPage extends StatelessWidget {
             Icons.calendar_month,
             size: 100.0,
           ),
+          InputField(
+            padding: const EdgeInsets.all(16.0),
+            hintText: 'Username',
+            onChangeText: (username) => onChangeUsername(username),
+          ),
+          InputField(
+            padding: const EdgeInsets.all(16.0),
+            hintText: 'Password',
+            onChangeText: (password) => onChangePassword(password),
+          ),
           ElevatedButton(
-            onPressed: () async => await UsersHandler().signInWithGoogle(),
+            onPressed: () => onLogin(),
+            child: const Text('Login'),
+          ),
+          ElevatedButton(
+            onPressed: () => onLoginGoogle,
             child: const Text('Login with google'),
           ),
         ],

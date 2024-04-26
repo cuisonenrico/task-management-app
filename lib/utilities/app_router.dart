@@ -1,7 +1,7 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:task_management_app/screens/login_page/login_page.dart';
+import 'package:task_management_app/screens/login_page/login_page_connector.dart';
 import 'package:task_management_app/screens/main_page/main_page_connector.dart';
 import 'package:task_management_app/state/app_state.dart';
 
@@ -17,7 +17,7 @@ final router = GoRouter(
 
     if (routeState.uri.toString().contains('sign-up-page')) return null;
 
-    if (!isLoggedIn) return LoginPage.route;
+    if (!isLoggedIn) return LoginPageConnector.route;
 
     if (routeState.uri.toString() == MainPageConnector.route) return null;
 
@@ -36,13 +36,13 @@ final router = GoRouter(
       routes: const [],
     ),
     GoRoute(
-      path: LoginPage.route,
-      name: LoginPage.routeName,
-      builder: (_, state) => const LoginPage(),
+      path: LoginPageConnector.route,
+      name: LoginPageConnector.routeName,
+      builder: (_, state) => const LoginPageConnector(),
       pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
         context: context,
         state: state,
-        child: const LoginPage(),
+        child: const LoginPageConnector(),
       ),
       routes: const [],
     ),

@@ -15,16 +15,20 @@ class UsersHandler {
     // Queries db if id exists
     final isUserExist = await db.doc(user.uid).get().then((value) => value.exists);
 
-    final newUser = user.toMap;
-
     if (!isUserExist) {
       // Creates entity when user does not exist in database
+      final newUser = user.toMap;
       await db.doc(user.uid).set(newUser);
-
       await user.updateDisplayName(displayName);
     }
 
-    return UserModel.fromJson(newUser);
+    final userDoc = await db.doc(user.uid).get();
+
+    if (userDoc.data() == null) return null;
+
+    final currUser = UserModel.fromJson(userDoc.data()!);
+
+    return currUser;
   }
 
   Future<UserCredential> signInWithGoogle() async {
@@ -42,6 +46,14 @@ class UsersHandler {
 
     final userCred = await FirebaseAuth.instance.signInWithCredential(credential);
 
+    return userCred;
+  }
+
+  Future<UserCredential> signInWithEmailAndPassword({required String email, required String password}) async {
+    final userCred = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
     return userCred;
   }
 }
