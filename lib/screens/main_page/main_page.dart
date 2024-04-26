@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:task_management_app/screens/widgets/app_bar.dart';
 import 'package:task_management_app/screens/widgets/app_scaffold.dart';
 import 'package:task_management_app/state/user_state/user_model/user_model.dart';
@@ -25,25 +26,8 @@ class MainPage extends StatelessWidget {
         isMessagingIconVisible: false,
         isCornersRounded: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(
-              user.firstName ?? '',
-            ),
-            Text(
-              user.email ?? '',
-            ),
-          ],
-        ),
+      body: SfCalendar(
+        view: CalendarView.month,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => onTap(1),
