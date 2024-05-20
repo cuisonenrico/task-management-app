@@ -33,8 +33,8 @@ class MainPageVmFactory extends VmFactory<AppState, MainPageConnector, MainPageV
     ));
     meetings.add(MeetingModel(
       eventName: 'Conference',
-      from: startTime.add(Duration(days: 1)),
-      to: endTime.add(Duration(days: 1)),
+      from: startTime.add(const Duration(days: 1)),
+      to: endTime.add(const Duration(days: 1)),
       background: 0,
       isAllDay: false,
     ));
