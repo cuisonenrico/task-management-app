@@ -23,6 +23,7 @@ class MyAppBar extends StatelessWidget {
     this.isShadowVisible = true,
     this.backIconSubstitute,
     this.color,
+    this.secondaryButtonColor,
     this.child,
     super.key,
   });
@@ -41,6 +42,7 @@ class MyAppBar extends StatelessWidget {
   final String? subLabel;
   final IconData? backIconSubstitute;
   final Color? color;
+  final Color? secondaryButtonColor;
   final Widget? child;
 
   double get _verticalPadding => subLabel != null ? defaultHalfPadding : defaultQuarterPadding;
@@ -100,7 +102,7 @@ class MyAppBar extends StatelessWidget {
                     onPressed: onSecondaryActionPressed,
                     icon: Icon(
                       secondaryActionIcon,
-                      color: color.getElementColor,
+                      color: secondaryButtonColor ?? color.getElementColor,
                     ),
                   ),
               ],
