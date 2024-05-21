@@ -32,9 +32,9 @@ class MeetingDataSource extends CalendarDataSource {
 
   @override
   Color getColor(int index) {
-    return _getMeetingData(index).background == null
+    return _getMeetingData(index).status == null
         ? Colors.green
-        : BackgroundColor.values[_getMeetingData(index).background!].color;
+        : BackgroundColor.values[_getMeetingData(index).status!].color;
   }
 
   @override

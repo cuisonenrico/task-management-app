@@ -74,7 +74,7 @@ class MainPage extends StatelessWidget {
               onTap: () {
                 showDialog<void>(
                   context: context,
-                  barrierDismissible: true, // false = user must tap button, true = tap outside dialog
+                  barrierDismissible: true,
                   builder: (BuildContext dialogContext) {
                     return const CreateEventDialog();
                   },
@@ -83,7 +83,7 @@ class MainPage extends StatelessWidget {
             ),
             SpeedDialChild(
               child: const Icon(Icons.edit),
-              onTap: () => calendarController.view = CalendarView.month,
+              onTap: () {},
             ),
           ],
         ),
