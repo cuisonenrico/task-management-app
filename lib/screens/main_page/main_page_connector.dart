@@ -14,7 +14,7 @@ class MainPageConnector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<AppState, MainPageVm>(
-      onInit: (store) => store.dispatch(DummyMeetingAction()),
+      onInit: (store) => store.dispatch(GetMeetingsAction()),
       vm: () => MainPageVmFactory(),
       builder: (_, vm) => MainPage(
         counter: vm.counter,

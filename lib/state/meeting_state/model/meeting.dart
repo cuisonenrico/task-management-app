@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:task_management_app/utilities/model_converters/timestamp_converter.dart';
 
 part 'meeting.freezed.dart';
 part 'meeting.g.dart';
@@ -7,9 +9,9 @@ part 'meeting.g.dart';
 class MeetingModel with _$MeetingModel {
   const factory MeetingModel({
     String? eventName,
-    DateTime? from,
-    DateTime? to,
-    int? background,
+    @TimestampConverter() DateTime? from,
+    @TimestampConverter() DateTime? to,
+    int? status,
     bool? isAllDay,
   }) = _MeetingModel;
 
@@ -19,7 +21,7 @@ class MeetingModel with _$MeetingModel {
         eventName: null,
         from: null,
         to: null,
-        background: null,
+        status: null,
         isAllDay: null,
       );
 }
