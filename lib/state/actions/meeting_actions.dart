@@ -2,9 +2,9 @@ import 'package:async_redux/async_redux.dart';
 import 'package:task_management_app/state/app_state.dart';
 import 'package:task_management_app/utilities/handlers/meeting_handler.dart';
 
-/// Update [meetings] in state based on passed meetings
-class DummyMeetingAction extends ReduxAction<AppState> {
-  DummyMeetingAction();
+/// Update [meetings] in state from database
+class GetMeetingsAction extends ReduxAction<AppState> {
+  GetMeetingsAction();
 
   @override
   Future<AppState?> reduce() async {
