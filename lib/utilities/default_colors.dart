@@ -11,4 +11,8 @@ Color tertiaryWithOpacity = const Color.fromRGBO(215, 240, 255, 0.5);
 // Variations
 Color mediumDark = const Color.fromRGBO(24, 24, 24, 1);
 
+const mediumGrey = Color(0xFF6C6C6C);
+const lightGrey = Color(0xFFF2F3F5);
+const fbColor = Color(0xFF4267B2);
+
 final cardShadowColor = mediumDark.withOpacity(0.16);
