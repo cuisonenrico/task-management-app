@@ -59,6 +59,11 @@ class MainPage extends StatelessWidget {
             calendarController.view = CalendarView.day;
             calendarController.displayDate = selectedDay.date ?? DateTime.now();
           },
+          // appointmentBuilder: (_, __) => Container(
+          //   color: Colors.blue,
+          //   height: 100,
+          //   width: 80,
+          // ),
         ),
         floatingActionButton: SpeedDial(
           icon: Icons.add,

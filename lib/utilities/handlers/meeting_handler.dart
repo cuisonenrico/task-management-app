@@ -13,23 +13,19 @@ class MeetingHandler {
       cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
     );
 
-    db.disableNetwork().then((value) async {
-      final collection = db.collection(MEETING_COLLECTION);
+    final collection = db.collection(MEETING_COLLECTION);
 
-      final meetings = await collection.doc(userId).get();
+    final meetings = await collection.doc(userId).get();
 
-      if (meetings.data() == null) return null;
+    if (meetings.data() == null) return null;
 
-      final test = meetings.data();
+    final test = meetings.data();
 
-      final meetingList = (test!.values.toList()).map((e) {
-        return MeetingModel.fromJson(e as Map<String, dynamic>);
-      }).toList();
+    final meetingList = (test!.values.toList()).map((e) {
+      return MeetingModel.fromJson(e as Map<String, dynamic>);
+    }).toList();
 
-      return meetingList;
-    });
-
-    return null;
+    return meetingList;
   }
 
   // Future<List<MeetingModel>?> addMeeting() async {} // TODO: implement
