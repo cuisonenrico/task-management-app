@@ -1,6 +1,7 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:task_management_app/screens/create_event/create_event_connector.dart';
 import 'package:task_management_app/screens/login_page/login_page_connector.dart';
 import 'package:task_management_app/screens/main_page/main_page_connector.dart';
 import 'package:task_management_app/state/app_state.dart';
@@ -33,7 +34,19 @@ final router = GoRouter(
         state: state,
         child: const MainPageConnector(),
       ),
-      routes: const [],
+      routes: [
+        GoRoute(
+          path: CreateEventConnector.route,
+          name: CreateEventConnector.routeName,
+          builder: (_, state) => const CreateEventConnector(),
+          pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+            context: context,
+            state: state,
+            child: const CreateEventConnector(),
+          ),
+          routes: const [],
+        ),
+      ],
     ),
     GoRoute(
       path: LoginPageConnector.route,

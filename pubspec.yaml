@@ -42,6 +42,7 @@ dependencies:
   flutter_svg: any
 
   flutter_speed_dial: ^7.0.0
+  google_fonts: 6.1.0
 
 dev_dependencies:
   flutter_test:

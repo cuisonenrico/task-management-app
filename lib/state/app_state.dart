@@ -1,7 +1,7 @@
 import 'package:async_redux/async_redux.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:task_management_app/state/login_form_state/login_form_state.dart';
-import 'package:task_management_app/state/meeting_state/meeting_state.dart';
+import 'package:task_management_app/state/meeting_state/event_state.dart';
 import 'package:task_management_app/state/user_state/user_state.dart';
 
 part 'app_state.freezed.dart';
@@ -13,7 +13,7 @@ class AppState with _$AppState {
     // Sub states
     @Default(UserState()) UserState userState,
     @Default(LoginFormState()) LoginFormState loginFormState,
-    @Default(MeetingState()) MeetingState meetingState,
+    @Default(EventState()) EventState eventState,
 
     // Counter
     @Default(0) int counter,

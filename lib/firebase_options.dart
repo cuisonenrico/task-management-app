@@ -4,6 +4,9 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
 import 'package:task_management_app/environment.dart';
 
+/// Values are transferred to a secure environment file that is required to build this application.
+/// This is to ensure that sensitives information such as keys and secrets are not exposed in the repository, and
+/// to initialize this application/project with correct database reference and firebase console for authentication
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
