@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:task_management_app/screens/main_page/widgets/create_event_dialog.dart';
+import 'package:task_management_app/screens/create_event/create_event_connector.dart';
 import 'package:task_management_app/screens/widgets/app_bar.dart';
 import 'package:task_management_app/screens/widgets/app_scaffold.dart';
 import 'package:task_management_app/state/meeting_state/classes/meeting_data_source.dart';
-import 'package:task_management_app/state/meeting_state/model/meeting.dart';
+import 'package:task_management_app/state/meeting_state/model/event.dart';
 import 'package:task_management_app/state/user_state/user_model/user_model.dart';
+import 'package:task_management_app/utilities/app_router.dart';
 import 'package:task_management_app/utilities/widget_constants.dart';
 
 class MainPage extends StatelessWidget {
@@ -21,7 +22,7 @@ class MainPage extends StatelessWidget {
 
   final UserModel user;
 
-  final List<MeetingModel> meetings;
+  final List<EventModel> meetings;
 
   @override
   Widget build(BuildContext context) {
@@ -77,13 +78,7 @@ class MainPage extends StatelessWidget {
             SpeedDialChild(
               child: const Icon(Icons.add),
               onTap: () {
-                showDialog<void>(
-                  context: context,
-                  barrierDismissible: true,
-                  builder: (BuildContext dialogContext) {
-                    return const CreateEventDialog();
-                  },
-                );
+                router.goNamed(CreateEventConnector.routeName);
               },
             ),
             SpeedDialChild(

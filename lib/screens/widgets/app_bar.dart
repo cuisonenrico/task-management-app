@@ -59,7 +59,7 @@ class MyAppBar extends StatelessWidget {
         bottom: viewPadding.bottom,
       ),
       decoration: BoxDecoration(
-        color: color ?? primary,
+        color: color ?? primaryColor,
         borderRadius: BorderRadius.vertical(bottom: Radius.circular(isCornersRounded ? defaultHalfRadius : 0.0)),
         boxShadow: null,
       ),
@@ -86,7 +86,7 @@ class MyAppBar extends StatelessWidget {
                   child: AppBarLabel(
                     label: label ?? '',
                     subLabel: subLabel,
-                    labelTextStyle: labelTextStyle?.copyWith(color: color.getElementColor),
+                    labelTextStyle: labelTextStyle,
                   ),
                 ),
                 if (isMessagingIconVisible)
